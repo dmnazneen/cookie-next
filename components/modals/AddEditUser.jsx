@@ -10,7 +10,7 @@ const AddEditUser = () => {
     const { register, handleSubmit } = useForm();
     const listref = useRef();
     return (
-        <div className='w-[480px] border border-black p-6 bg-white'>
+        <div className='w-[480px] drop-shadow-lg p-6 bg-white rounded-md'>
             <h1 className='mb-8 border-b border-black/10'>Add new user</h1>
             <div className='flex items-center border border-black/10 px-6 py-3 rounded-full mb-4'>
                 <Upload size={20} className='mr-2' />
@@ -34,14 +34,10 @@ const AddEditUser = () => {
                 <span className='absolute right-8 top-4'><CaretDown size={20} /></span>
                 <Popup modalRef={listref}>
                     <ul className='absolute rounded-sm left-3 h-36 overflow-y-scroll bg-white drop-shadow-lg w-4/5 top-12'>
-                        <li><SWitem /></li>
-                        <li><SWitem /></li>
-                        <li><SWitem /></li>
-                        <li><SWitem /></li>
-                        <li><SWitem /></li>
-                        <li><SWitem /></li>
-                        <li><SWitem /></li>
-                        <li><SWitem /></li>
+                        <SWitem />
+                        <SWitem />
+                        <SWitem />
+                        <SWitem />
                     </ul>
                 </Popup>
             </div>
