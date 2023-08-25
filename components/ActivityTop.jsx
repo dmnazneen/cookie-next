@@ -8,7 +8,7 @@ import Calender from './Calender';
 const ActivityTop = () => {
     return (
         <div className='flex justify-between items-center py-10 pr-10'>
-            <h1 className='flex gap-2 items-center px-8'><span className='text-xl font-semibold'>User Activity</span> <Tooltip text='You can see the user activity here' /></h1>
+            <h1 className='flex gap-2 items-center px-8'><span className='text-xl font-medium'>User Activity</span> <Tooltip text='You can see the user activity here' /></h1>
             <div className='flex gap-2'>
                 <section className='bg-white py-2 px-4 flex items-center min-w-52 rounded-[4px] cursor-pointer'>
                     <Image src={user} alt=' default user' height={25} width={25} className='rounded-full' />

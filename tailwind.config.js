@@ -7,7 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
-
+      fontFamily: {
+        'lexend': ['Lexend', 'sans-serif'],
+        'inter': ['Inter', 'system-ui', 'Avenir', 'Helvetica', 'Arial', 'sans-serif']
+      },
       colors: {
         black: '#040501',
         green: '#50AB27',

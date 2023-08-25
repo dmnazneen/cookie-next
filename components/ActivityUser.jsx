@@ -7,8 +7,8 @@ import { Plus } from '@phosphor-icons/react';
 const ActivityUser = () => {
     return (
         <div className='px-10 flex'>
-            <section className='font-semibold min-w-[390px]'>
-                <h1 className='text-xl text-black/60 border-b border-black/10 pb-3'>User Detail</h1>
+            <section className='font-medium min-w-[390px]'>
+                <h1 className='text-lg text-black/60 border-b border-black/10 pb-3'>User Detail</h1>
                 <div className='flex items-center gap-3 py-6'>
                     <Image src={user} alt='current user' height={70} width={70} className='rounded-full' />
                     <div>
@@ -18,8 +18,8 @@ const ActivityUser = () => {
                 </div>
             </section>
 
-            <section className='font-semibold w-full'>
-                <h1 className='text-xl text-black/60 border-b border-black/10 pb-3'>Software Permission List</h1>
+            <section className='font-medium w-full'>
+                <h1 className='text-lg text-black/60 border-b border-black/10 pb-3'>Software Permission List</h1>
                 <ul className='flex gap-3 py-6'>
                     {
                         [1, 2, 3].map(m => <ProgLogoSmall key={m} border='border-white' />)
