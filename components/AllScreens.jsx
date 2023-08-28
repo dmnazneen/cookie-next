@@ -34,7 +34,7 @@ const AllScreens = () => {
         <div className='py-10 px-8'>
             {
                 allscreens ?
-                    Object.keys(allscreens).map((row) => <SSdiv time={row} item={allscreens[row]} />)
+                    Object.keys(allscreens).map((row, index) => <SSdiv key={index} time={row} item={allscreens[row]} />)
                     : 'no data to show'
             }
         </div>

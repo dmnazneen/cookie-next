@@ -7,13 +7,14 @@ import Navigation from '@/components/Navigation';
 
 const Index = () => {
     const { users, getusers } = useGlobalCtx();
+
     useEffect(() => {
         getusers();
     }, [])
     return (
         <>
             <Navigation />
-            <div className='max-h-screen max-w-screen flex'>
+            <div className='max-h-screen max-w-screen flex items-start'>
                 <Sidebar />
                 <div className='bg-lightash w-full h-full overflow-hidden'>
                     <h1 className='flex gap-2 items-center px-8 pt-10 pb-4'><span className='text-lg'>All User List</span> <Tooltip /></h1>

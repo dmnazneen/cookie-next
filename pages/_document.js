@@ -1,3 +1,4 @@
+import Modal from '@/components/Modal'
 import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
@@ -7,6 +8,7 @@ export default function Document() {
       <body className='font-lexend'>
         <Main />
         <NextScript />
+        <div id='modal-container'></div>
       </body>
     </Html>
   )

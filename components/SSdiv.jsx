@@ -11,7 +11,7 @@ const SSdiv = ({ time, item }) => {
             </p>
             <div className='flex gap-2 mb-4'>
                 {
-                    item.map(m => <Image src={`https://localhost:9998/api/${m.image}`} alt={'screenshot of the user desktop'} width={200} height={150} unoptimized={true} className='rounded-sm' />)
+                    item.map(m => <Image key={m.id} src={`https://localhost:9998/api/${m.image}`} alt={'screenshot of the user desktop'} width={200} height={150} unoptimized={true} className='rounded-sm' />)
                 }
             </div>
         </div>

@@ -14,7 +14,6 @@ const Login = () => {
     const { login } = useGlobalCtx();
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
-        // console.log(data)
         fetch(`${process.env.BASE_URL}/user/login`, {
             method: 'POST',
             headers: {
@@ -25,10 +24,13 @@ const Login = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if (data.role === 'admin') {
-                    router.push('/admin')
-                } else if (data.role === 'user') router.push('/userhome')
-                else console.log('wrong infromation')
+                if (data.id) {
+                    login(data);
+                    if (data.role === 'admin') {
+                        router.push('/admin')
+                    } else if (data.role === 'user') router.push('/userhome')
+                    else console.log('wrong infromation')
+                }
             })
     }
     return (

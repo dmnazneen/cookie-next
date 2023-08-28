@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 export default function useUser() {
     const [user, setUser] = useState(null);
+    const [person, setPerson] = useState(null);
     const [allapps, setAllapps] = useState(null)
     const [users, setUsers] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -49,6 +50,8 @@ export default function useUser() {
         getallapps,
         getusers,
         login,
-        logout
+        logout,
+        person,
+        setPerson
     }
 }

@@ -12,11 +12,12 @@ const AddEditUser = () => {
     return (
         <div className='w-[480px] drop-shadow-lg p-6 bg-white rounded-md'>
             <h1 className='mb-8 border-b border-black/10'>Add new user</h1>
-            <div className='flex items-center border border-black/10 px-6 py-3 rounded-full mb-4'>
+            <input type="file" id='userimg' hidden />
+            <label htmlFor='userimg' className='flex items-center border border-black/10 px-6 py-3 rounded-full mb-4 cursor-pointer'>
                 <Upload size={20} className='mr-2' />
-                <span>Upload image. (JPG, PNG)</span>
-                <span className='ml-auto bg-yellowish py-1 px-3 rounded-full'>Choose File</span>
-            </div>
+                <span className=' pointer-events-none'>Upload image. (JPG, PNG)</span>
+                <span className='ml-auto bg-yellowish py-1 px-3 rounded-full pointer-events-none'>Choose File</span>
+            </label>
             <Input name={'name'} label={'Name'} type={'text'} register={() => register('name')} />
             <br />
             <br />

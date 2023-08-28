@@ -7,7 +7,7 @@ const NavLogo = () => {
     return (
         <div className='flex text-white items-center font-semibold ml-4'>
             <Image src={logo} alt='company logo' height={25} width={25} className='p-[4px] rounded-full bg-green mr-2' />
-            <Link href={'/'}>Cookie</Link>
+            <Link className=' text-xl' href={'/'}>Cookie</Link>
         </div>
     );
 }
