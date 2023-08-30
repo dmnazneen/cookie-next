@@ -6,7 +6,7 @@ const AllScreens = () => {
     const [screens, setScreens] = useState(null);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch(`${process.env.BASE_URL}/activities`)
+        fetch(`${process.env.BASE_URL}/activities`, { credentials: 'include' })
             .then(res => res.json())
             .then(data => {
                 setScreens(data);
@@ -15,7 +15,6 @@ const AllScreens = () => {
     }, [])
     let allscreens = null;
     if (screens) {
-        // console.log(screens)
         const time = new Date('2023-07-25').getTime();
         let data = screens.filter(item => item.user === '64b7c6b2c2c4ab2c7145ef90').filter((item => {
             const sstaken = new Date(item.createdAt).getTime();

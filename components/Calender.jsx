@@ -18,10 +18,10 @@ const Calender = () => {
             <button className='bg-white p-2 rounded-[4px]' onClick={() => setTime((prev) => (prev - 86400000))}>
                 <ArrowLeft size={25} className='text-black/60 bg-white' />
             </button>
-            <div className='flex items-center bg-white px-4 py-2 rounded-[4px] cursor-pointer'>
+            <div className='flex items-center w-48 bg-white px-3 rounded-[4px] cursor-pointer relative'>
                 <Calendar size={25} className='text-green' />
-                <input type="date" id='calender' />
-                <label htmlFor='calender' className='text-black/50 w-36 text-sm font-semibold ml-2 pointer-events-none'>{getDateString()}</label>
+                <input type="date" id='calender' className='outline-none text-transparent text-sm' onChange={(e) => setTime((new Date(e.target.value).getTime()))} />
+                <label htmlFor='calender' className='bg-white text-black/50 w-36 text-sm font-semibold ml-6 pl-1 pointer-events-none absolute'>{getDateString()}</label>
             </div>
             <button className='bg-white p-2 rounded-[4px]' onClick={() => setTime((prev) => (prev + 86400000))}>
                 <ArrowRight size={25} className='text-black/60 bg-white' />
@@ -31,3 +31,4 @@ const Calender = () => {
 }
 
 export default Calender;
+

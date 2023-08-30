@@ -5,11 +5,11 @@ export default function useUser() {
     const [person, setPerson] = useState(null);
     const [allapps, setAllapps] = useState(null)
     const [users, setUsers] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [update, setupdate] = useState(true);
 
     useEffect(() => {
         // for refresh purpose
-        // me();
+        me();
     }, [])
 
     function login(user) {
@@ -17,26 +17,30 @@ export default function useUser() {
     }
 
     function logout() {
+        fetch(`${process.env.BASE_URL}/user/logout`, { credentials: 'include' })
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+
         setUser(null);
     }
 
     function me() {
-        fetch(`${process.env.BASE_URL}/user/me`)
+        fetch(`${process.env.BASE_URL}/user/me`, { credentials: 'include' })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => setUser(data))
             .catch(err => console.log(err))
-            .finally(() => setLoading(false))
     }
 
     function getallapps() {
-        fetch(`${process.env.BASE_URL}/app`)
+        fetch(`${process.env.BASE_URL}/app`, { credentials: 'include' })
             .then(res => res.json())
             .then(data => setAllapps(data))
             .catch(err => console.log(err))
     }
 
     function getusers() {
-        fetch(`${process.env.BASE_URL}/users`)
+        fetch(`${process.env.BASE_URL}/users`, { credentials: 'include' })
             .then(res => res.json())
             .then(data => setUsers(data))
             .catch(err => console.log(err))
@@ -46,12 +50,13 @@ export default function useUser() {
         user,
         allapps,
         users,
-        loading,
         getallapps,
         getusers,
         login,
         logout,
         person,
-        setPerson
+        setPerson,
+        update,
+        setupdate,
     }
 }

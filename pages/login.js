@@ -19,11 +19,12 @@ const Login = () => {
             headers: {
                 'Content-Type': 'application/json',
             },
+            credentials: 'include',
             body: JSON.stringify(data)
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.id) {
                     login(data);
                     if (data.role === 'admin') {

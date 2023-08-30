@@ -3,11 +3,33 @@ import Input from '../Input';
 import { useForm } from 'react-hook-form';
 import { Upload } from '@phosphor-icons/react';
 import ActionBtn from '../ActionBtn';
+import { useGlobalCtx } from '@/context/GlobalContext';
 
 const AddSW = () => {
+    const { close, setupdate } = useGlobalCtx();
     const { register, handleSubmit } = useForm();
+
+    const onsubmit = (data) => {
+        const formData = new FormData();
+        // formData.append('image', data.image[0]);
+        // delete data.image;
+        formData.append('data', JSON.stringify(data));
+        // adding new software
+        fetch(`${process.env.BASE_URL}/app/create`, {
+            method: 'POST',
+            credentials: "include",
+            body: formData
+        }).then(res => res.json())
+            .then(data => {
+                if (data.id) {
+                    setupdate(prev => !prev);
+                    close('addsw')
+                }
+            })
+            .catch(err => console.log(err))
+    }
     return (
-        <div className='w-[480px] drop-shadow-lg p-6 bg-white rounded-md'>
+        <form onSubmit={handleSubmit(onsubmit)} className='w-[480px] drop-shadow-lg p-6 bg-white rounded-md'>
             <h1 className='mb-8 border-b border-black/10'>Add new Software</h1>
             <Input name={'name'} label={'Software Name'} type={'text'} register={() => register('name')} />
             <br />
@@ -24,7 +46,7 @@ const AddSW = () => {
             <div className='text-right'>
                 <ActionBtn text='Add New' />
             </div>
-        </div>
+        </form>
     );
 }
 
