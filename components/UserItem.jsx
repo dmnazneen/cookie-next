@@ -38,7 +38,7 @@ const UserItem = ({ item }) => {
                 <p className='text-xs text-black/70 font-semibold'>{item.email}</p>
             </section>
             <ul className='flex gap-3 mr-1'>
-                {item.app.map(k => <ProgLogoSmall key={k.id} />)}
+                {item.app.map((k, index) => <ProgLogoSmall key={index} data={k} />)}
             </ul>
             <div className='ml-auto relative text-sm text-black/70 font-medium'>
                 <button className='bg-white flex items-center gap-2 rounded-[5px] border-2 border-ash py-2 px-3 focus:bg-green focus:border-green focus:text-white' onFocus={() => actionref.current.classList.remove('hidden')}>Action <span><CaretDown /></span></button>

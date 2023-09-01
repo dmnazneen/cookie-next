@@ -12,7 +12,26 @@ const Signup = () => {
     const router = useRouter();
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
+
+        if (data.password !== data.confpassword) return;
+        delete data.confpassword;
         console.log(data)
+
+        const formData = new FormData();
+        formData.append('data', JSON.stringify(data))
+        fetch(`${process.env.BASE_URL}/user/register`, {
+            method: 'POST',
+            credentials: 'include',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data);
+                if (data.id) {
+                    router.push('/login')
+                }
+                else console.log('wrong infromation')
+            })
     }
     return (
         <div className='mx-auto mt-5 w-[500px] bg-white drop-shadow-lg rounded-md overflow-hidden'>

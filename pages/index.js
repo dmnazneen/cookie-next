@@ -7,7 +7,6 @@ export default function Home() {
       className={`${inter.className}`}
     >
       <h1>hello world</h1>
-
     </main>
   )
 }

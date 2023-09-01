@@ -23,7 +23,7 @@ export default function ModalWrapper({ modalKey }) {
 
     return (
         ReactDOM.createPortal(
-            <div className='h-screen w-screen bg-black/60 fixed top-10 left-0 z-10'>
+            <div className='h-screen w-screen bg-white/70 fixed top-10 left-0 z-10'>
                 <div className='max-w-[480px] mx-auto relative top-[30%] translate-y-[-30%]' ref={modalRef}>{modals[modalKey]}</div>
             </div>,
             document.querySelector('#modal-container')

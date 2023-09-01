@@ -1,9 +1,11 @@
 import Navigation from '@/components/Navigation';
 import ProgLogo from '@/components/ProgLogo';
+import { useGlobalCtx } from '@/context/GlobalContext';
 import { MagnifyingGlass } from '@phosphor-icons/react';
 import React from 'react';
 
 const Userhome = () => {
+    const { user } = useGlobalCtx();
     return (
         <div className='h-screen overflow-y-hidden'>
             <Navigation />
@@ -12,7 +14,7 @@ const Userhome = () => {
                     <h1 className='pb-10 text-lg font-medium'>Recently used</h1>
                     <ul className='flex gap-5 flex-wrap'>
                         {
-                            [1, 2, 3, 4, 5].map(m => <ProgLogo key={m} />)
+                            user && user.app.map(m => <ProgLogo key={m} />)
                         }
                     </ul>
                 </section>
@@ -26,7 +28,7 @@ const Userhome = () => {
                 <div className='px-10 pb-20'>
                     <ul className='flex gap-5 flex-wrap'>
                         {
-                            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].map(m => <ProgLogo key={m} />)
+                            user && user.app.map(m => <ProgLogo key={m} />)
                         }
                     </ul>
                 </div>

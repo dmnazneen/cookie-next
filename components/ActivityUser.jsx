@@ -1,15 +1,22 @@
 import Image from 'next/image';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import user from '../public/assets/user.jpg'
 import ProgLogoSmall from './ProgLogoSmall';
 import { Plus } from '@phosphor-icons/react';
 import Popup from './Popup';
-import PermissionList from './PermissionList';
 import { useGlobalCtx } from '@/context/GlobalContext';
+import dynamic from 'next/dynamic';
+import PermissionList from './PermissionList';
 
 const ActivityUser = () => {
     const { person } = useGlobalCtx();
     const permissionref = useRef();
+    const [personapps, setpersonapps] = useState(null);
+
+    useEffect(() => {
+        person && setpersonapps(person.app)
+    }, [])
+
     return (
         <div className='px-10 flex'>
             <section className='font-medium min-w-[390px]'>
@@ -23,20 +30,19 @@ const ActivityUser = () => {
                 </div>
             </section>
 
-            <section className='font-medium w-full'>
+            <section className='font-medium w-full relative'>
                 <h1 className='text-lg text-black/60 border-b border-black/10 pb-3'>Software Permission List</h1>
                 <ul className='flex gap-3 py-6'>
                     {
-                        person && person.app.map(m => <ProgLogoSmall key={m.id} data={m} border='border-white' />)
+                        personapps && personapps.map(m => <ProgLogoSmall key={m.id} data={m} border='border-white' />)
                     }
                     <li>
-                        <div className='relative'>
+                        <div>
                             <button className='bg-white/70 p-3 rounded-2xl border-2 border-white text-green'><Plus size={35} onClick={() => permissionref.current.classList.remove('hidden')} /></button>
                             <Popup modalRef={permissionref}>
-                                <PermissionList />
+                                <PermissionList personapps={personapps} setpersonapps={setpersonapps} />
                             </Popup>
                         </div>
-
                     </li>
                 </ul>
             </section>

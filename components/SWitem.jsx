@@ -12,6 +12,7 @@ const SWitem = ({ data, checked, handletoggle = () => { } }) => {
             </div>
             <label className="relative inline-flex items-center cursor-pointer ml-auto">
                 <input type="checkbox" value="" className="sr-only peer" checked={checked} onChange={(e) => handletoggle(e, data)} />
+                <div></div>
                 <div className="w-8 h-4 bg-yellowish peer-focus:outline-none rounded-full peer  peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[0.2px] after:left-[0.2px] after:bg-green after:border after:rounded-full after:h-[16px] after:w-[16px] after:transition-all peer-checked:bg-green peer-checked:after:bg-white"></div>
             </label>
         </li>
